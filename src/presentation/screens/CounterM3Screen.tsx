@@ -3,6 +3,8 @@ import { Text, View } from 'react-native'
 import { globalStyle } from '../theme/global.style'
 import { FAB } from 'react-native-paper'
 import Icon from 'react-native-vector-icons/Ionicons'
+import { PrimaryButton } from '../components'
+
 
 export const CounterM3Screen = () => {
 
@@ -11,7 +13,11 @@ export const CounterM3Screen = () => {
     return (
         <View style={globalStyle.centerContainer}>
             <Text style={globalStyle.title}>{count}</Text>
-            <Icon name='add-outline' size={20}/>
+                <PrimaryButton
+                label='sum and reset'
+                onPress={()=>setCount(count + 1)}
+                onLongPress={()=> setCount(0)}
+            />
         <FAB
             icon="add"
             onPress={()=> setCount(count+1)}
